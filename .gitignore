@@ -1,0 +1,7 @@
+# Files that Git should ignore
+
+*.data
+*.o
+*.txz
+*~
+randall
