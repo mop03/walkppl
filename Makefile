@@ -25,8 +25,8 @@ CFLAGS = $(OPTIMIZE) -g3 -Wall -Wextra -fanalyzer \
 
 # The archiver command, its options and filename extension.
 TAR = tar
-TARFLAGS = --xz --transform 's,^,randall/,'
-TAREXT = txz
+TARFLAGS = --gzip --transform 's,^,randall/,'
+TAREXT = tgz
 
 default: randall
 
