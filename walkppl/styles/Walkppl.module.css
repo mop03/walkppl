@@ -1,0 +1,199 @@
+.Walkppl {
+    --primary: #07fcef;
+    --secondary: #fa10c7;
+    width: 100%;
+}
+
+.audioPlayer {
+    background-color: #000000;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.songData {
+    display: flex;
+    align-items: center;
+    color: #fa10c7;
+    font-family: monospace;
+}
+
+.otherSongDetails {
+    align-items: center;
+    color: #fa10c7;
+    font-family: monospace;
+    margin-left: 15px;
+}
+
+.coverArt {
+    background-image: url(../album_covers/Paradise_Coldplay.png);
+}
+
+.songTitle {
+    font-size: 16px;
+}
+
+.artistName {
+    font-size: 12px;
+}
+
+.navButtons {
+    display: flex;
+    align-items: center;
+}
+
+.forward,
+.backward {
+    color: #fa10c7;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.backward {
+    margin-left: 25px;
+}
+
+.forwardBackward:hover {
+    color: var(--primary);
+}
+
+.playPause {
+    background: var(--primary);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play {
+    position: relative;
+    left: 2px;
+}
+
+.currentTime,
+.duration {
+    color: #fa10c7;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.currentTime {
+    margin-left: 25px;
+    margin-right: 10px;
+}
+
+.duration {
+    margin-left: 10px;
+}
+
+.progressBar {
+    --bar-bg: #affff8;
+    --seek-before-width: 0;
+    --seek-before-color: #61fff2;
+    --knobby: #fa10c7;
+    --selected_knobby: #7510fa;
+
+    appearance: none;
+    background: var(--bar-bg);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+}
+
+.progressBar::-webkit-slider-runnable-track {
+    background: var(--bar-bg);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+}
+
+.progressBar::-moz-range-track {
+    background: var(--bar-bg);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+}
+
+.progressBar::-moz-focus-outer {
+    border: 0;
+}
+
+/* Bar: Chrome and Safari */
+
+.progressBar::before {
+    content: '';
+    height: 11px;
+    width: var(--seek-before-width);
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Bar: Firefox */
+.progressBar::-moz-range-progress {
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 11px;
+}
+
+/* Knobby: Chrome and Safari */
+.progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    margin: -2px 0 0 0;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+/* Dragging knobby: Chrome and Safari */
+.progressBar:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background-color: var(--selected_knobby);
+}
+
+/* Knobby: Firefox */
+.progressBar::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: transparent;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+/* Dragging knobby: Firefox */
+.progressBar:active::-moz-range-thumb {
+    transform: scale(1.2);
+    background-color: var(--selected_knobby);
+}
