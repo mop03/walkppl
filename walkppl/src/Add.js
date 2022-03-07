@@ -42,14 +42,17 @@ function AddSong(props) {
     
     e.preventDefault();
     if (musicUrl != null && fileUrl !== null) {
-    const musicname = e.target.musicname.value;
+    const musicname =props.songData.title;
+    console.log(musicname)
      if (!musicname) {
        return;
      }
      db.collection("Music").doc(musicname).set({
-       name: musicname,
-       music: musicUrl,
-       image: fileUrl,
+       title: musicname,
+       artist: props.songData.owner,
+       album: props.songData.album,
+       src: musicUrl,
+       img_src: fileUrl,
      });
      alert("Music added");  
     } 
