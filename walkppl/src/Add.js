@@ -51,8 +51,10 @@ function AddSong(props) {
        title: musicname,
        artist: props.songData.owner,
        album: props.songData.album,
-       src: musicUrl,
+       track: 'enjoy',
+       year: '2021',
        img_src: fileUrl,
+       src: musicUrl,
      });
      alert("Music added");  
     } 

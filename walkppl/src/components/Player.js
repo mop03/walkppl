@@ -108,13 +108,13 @@ function Player(props) {
 
         <div className="nextsong-details">
           <img
-            src={props.songs[props.nextSongIndex].img_src}
-            alt={props.songs[props.nextSongIndex].title}
+            src={props.songs[props.nextSongIndex]?.img_src}
+            alt={props.songs[props.nextSongIndex]?.title}
             style={{ width: "4em", height: "auto" }}
           />
           <p>
-            <b>{props.songs[props.nextSongIndex].title} </b>&nbsp; by &nbsp;
-            <b>{props.songs[props.nextSongIndex].artist}</b>
+            <b>{props.songs[props.nextSongIndex]?.title} </b>&nbsp; by &nbsp;
+            <b>{props.songs[props.nextSongIndex]?.artist}</b>
             {/* &nbsp; from album
             &nbsp; */}
             {/* <b>{props.songs[props.nextSongIndex].album}</b> */}
@@ -123,7 +123,7 @@ function Player(props) {
       </p>
       <div className="music-player">
         <audio
-          src={props.songs[props.currentSongIndex].src}
+          src={props.songs[props.currentSongIndex]?.src}
           ref={audioElement}
         ></audio>
         <PlayerDetails song={props.songs[props.currentSongIndex]} />
