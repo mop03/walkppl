@@ -1,0 +1,12 @@
+.header {
+    background-color: #000000;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.logoText {
+    color: #07fcef;
+    font-family: monospace;
+    font-size: 24px;
+}
