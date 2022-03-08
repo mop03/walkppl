@@ -102,7 +102,7 @@ body {
 .music-player--controls {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 35px;
 }
 
@@ -149,6 +149,31 @@ body {
 }
 
 .skip-btn:hover {
+  /* transform: scale(1.5); */
+  color: rgba(171, 2, 26, 0.95);
+  opacity: 1;
+  box-shadow: 0 6px 9px rgba(33, 33, 33, 0.1), 0 6px 16px rgba(33, 33, 33, 0.15);
+}
+
+.music-player--controls .shuffle-btn {
+  padding: .7rem;
+  margin-left: .2rem;
+  margin-right: .2rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background: none;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(33, 33, 33, 0.1), 0 3px 12px rgba(33, 33, 33, 0.15);
+  transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+}
+.shuffle-btn:focus {
+  color: rgba(171, 2, 26, 0.95);
+  opacity: 1;
+  box-shadow: 0 6px 9px rgba(33, 33, 33, 0.1), 0 6px 16px rgba(33, 33, 33, 0.15);
+}
+
+.shuffle-btn:hover {
   /* transform: scale(1.5); */
   color: rgba(171, 2, 26, 0.95);
   opacity: 1;

@@ -5,6 +5,7 @@ import {
   faPause,
   faForward,
   faBackward,
+  faRandom,
 } from "@fortawesome/free-solid-svg-icons";
 
 // play, skip buttons as an component in play
@@ -23,6 +24,14 @@ function PlayerControls(props) {
       <button className="skip-btn" onClick={() => props.SkipSong()}>
         <FontAwesomeIcon icon={faForward} />
       </button>
+      <button className="shuffle-btn" onClick={() => {
+        //props.setIsPlaying(false); BASCICALLY THIS WORKS BUT NOT WHEN U SHUFFLE ON THE FIRST TIME 
+        props.ShuffleSongs(true);
+        
+      }}>
+        <FontAwesomeIcon icon={faRandom} />
+      </button>
+
     </div>
   );
 }

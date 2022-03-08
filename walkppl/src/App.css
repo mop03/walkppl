@@ -152,6 +152,21 @@ body {
   transform: scale(1.5);
 }
 
+.music-player--controls .shuffle-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-size: 38px;
+  transition: all 0.4s;
+}
+
+.shuffle-btn:hover {
+  transform: scale(1.5);
+}
+
+
 .weirdShape {
   width: 1000px;
   height: 1005px;

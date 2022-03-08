@@ -6,7 +6,7 @@ import firebase from './firebase'
 function App() {
   
 // list of hard coded songs with attributes
-  const [songs] = useState([
+  const [songs,shuffleSongs] = useState([
     {
       title: "$orries",
       artist: "Peachy!",
@@ -83,6 +83,8 @@ function App() {
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
+  
+
 
   useEffect(() => {
     setNextSongIndex(() => {
@@ -94,14 +96,26 @@ function App() {
     });
   }, [currentSongIndex]);
 
+  /*useEffect(() => {
+    shuffleSongs(() => {
+      if (currentSongIndex + 1 > songs.length - 1) {
+        return 0;
+      } else {
+        return currentSongIndex + 1;
+      }
+    });
+  }, [currentSongIndex]);*/
+
   return (
     <div className="App">
       {/* <div className="weirdShape"></div> */}
       <Player
         currentSongIndex={currentSongIndex}
         setCurrentSongIndex={setCurrentSongIndex}
-        nextSongIndex={nextSongIndex}
-        songs={songs}
+        nextSongIndex={nextSongIndex} //im guessing dont need setNextSongIndex here cuz above 
+        //songs={songs}
+        songs ={songs}
+        shuffleSongs={shuffleSongs}
       />
     </div>
   );

@@ -6,9 +6,11 @@ import db from '../firebase'
 import storage from 'firebase/storage'
 
 import {
-  faCoffee,
+  faCoffee, faRandom,
+
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { requirePropFactory } from "@material-ui/core";
 
 // if you are in NEW branch don't change this 
 // plalist 
@@ -91,6 +93,38 @@ function Player(props) {
       });
     }
   };
+
+  const ShuffleSongs = (shuffle = true) =>{
+    if (shuffle) {
+      
+      audioElement.current.pause();
+        props.shuffleSongs(() => {
+        let temp1 = props.songs;
+        temp1 = temp1.sort(() => Math.random() - 0.5)
+        console.log(temp1)
+        console.log("changed songs")
+        return props.songs;
+      });
+      
+       props.setCurrentSongIndex(() => {
+        console.log("currentSongIndex")
+        console.log(props.currentSongIndex)
+        console.log(props.songs[props.currentSongIndex])
+        return 0; //so itll go to 0
+      }); 
+
+  
+    }
+  };
+
+  const play = (play = true) =>{
+    if (play){
+      audioElement.current.play();
+    }
+  }
+
+ 
+   
   const onUpload = ()=>{
     console.log(mp3Data)
     setShowAddSong(false)
@@ -108,6 +142,7 @@ function Player(props) {
 
         <div className="nextsong-details">
           <img
+            
             src={props.songs[props.nextSongIndex].img_src}
             alt={props.songs[props.nextSongIndex].title}
             style={{ width: "4em", height: "auto" }}
@@ -129,9 +164,11 @@ function Player(props) {
         <PlayerDetails song={props.songs[props.currentSongIndex]} />
 
         <PlayerControls
+          play={play}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
           SkipSong={SkipSong}
+          ShuffleSongs={ShuffleSongs}  //i wanna randomize songs, then set song to currSongIndex to 0
         />
 
         <div class="player__footer">
@@ -147,16 +184,19 @@ function Player(props) {
             songData={songData}
             setSongData={setSongData}
             mp3Data={mp3Data}
-            setMp3Data={setMp3Data}
+            setMp3Data={setMp3Data} //prob shouldn't be class skip-btn, this addsong 
             />) : (
-              <button className="skip-btn" onClick={() => setShowAddSong(true)}>
+              <button className="skip-btn" onClick={() => setShowAddSong(true)}> 
               <FontAwesomeIcon icon={faCoffee} /> 
               </button>
             )}
             <li>
-              <a href="#" class="list__link">
-                <i class="fa fa-random"></i>
+              <a href="#" class="list_link">
+               {/*  <button className="shuffle-btn" onClick={() => ShuffleSongs(true)}>
+                <FontAwesomeIcon icon={faRandom} /> 
+                </button> */}
               </a>
+
             </li>
 
             <li>
