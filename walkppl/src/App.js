@@ -113,7 +113,6 @@ function App() {
         currentSongIndex={currentSongIndex}
         setCurrentSongIndex={setCurrentSongIndex}
         nextSongIndex={nextSongIndex} //im guessing dont need setNextSongIndex here cuz above 
-        //songs={songs}
         songs ={songs}
         shuffleSongs={shuffleSongs}
       />

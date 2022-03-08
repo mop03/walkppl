@@ -25,9 +25,7 @@ function PlayerControls(props) {
         <FontAwesomeIcon icon={faForward} />
       </button>
       <button className="shuffle-btn" onClick={() => {
-        //props.setIsPlaying(false); BASCICALLY THIS WORKS BUT NOT WHEN U SHUFFLE ON THE FIRST TIME 
-        props.ShuffleSongs(true);
-        
+        props.ShuffleSongs(true);      
       }}>
         <FontAwesomeIcon icon={faRandom} />
       </button>

@@ -101,27 +101,26 @@ function Player(props) {
         props.shuffleSongs(() => {
         let temp1 = props.songs;
         temp1 = temp1.sort(() => Math.random() - 0.5)
-        console.log(temp1)
-        console.log("changed songs")
         return props.songs;
       });
       
        props.setCurrentSongIndex(() => {
-        console.log("currentSongIndex")
-        console.log(props.currentSongIndex)
-        console.log(props.songs[props.currentSongIndex])
-        return 0; //so itll go to 0
+        if (props.currentSongIndex == 0)
+        {
+       
+          return props.currentSongIndex + 1;
+        }
+        else{
+        return props.currentSongIndex -1; 
+        } 
       }); 
+
+    
 
   
     }
   };
 
-  const play = (play = true) =>{
-    if (play){
-      audioElement.current.play();
-    }
-  }
 
  
    
@@ -164,7 +163,6 @@ function Player(props) {
         <PlayerDetails song={props.songs[props.currentSongIndex]} />
 
         <PlayerControls
-          play={play}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
           SkipSong={SkipSong}
