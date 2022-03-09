@@ -47,6 +47,16 @@
     width: 900vh;
     margin-top: 0px;
   }
+  .grid2 {
+    position:absolute;
+    align-items:center;
+    justify-content:center;
+    display: flex;
+    max-width: 1500px;
+    height: 50vh;
+    width: 50vh;
+    margin-top: 0px;
+  }
   
   .card {
     margin: 1rem;
@@ -96,6 +106,8 @@
   .playlistsong{
     display: flex; 
     justify-content: space-between;
+    align-items: center;
+      text-align: center;
     color: #fa10c7;
   }
 
@@ -143,4 +155,9 @@
 
     .AddSong {
       text-color: #ffffff;
+    }
+
+    .AddSong1 {
+      text-align: center;
+      align-items: center;
     }

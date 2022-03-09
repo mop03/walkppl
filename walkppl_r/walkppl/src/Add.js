@@ -4,11 +4,13 @@ import React, { useState, useRef, useEffect } from "react";
 import db from "./firebase"
 import firebase from "firebase/compat/app"
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
+import Addhelper from './clickPlaylist'
 
 
 
 function AddSong(props) {
   
+    const[add,setAdd] = useState([]);
     const [fileUrl, setFileUrl] = React.useState(null)
     const [musicUrl, setMusicUrl] = React.useState(null)
     const [disable, setDisable] = React.useState(true);
@@ -55,7 +57,8 @@ function AddSong(props) {
        img_src: fileUrl,
        src: musicUrl,
      });
-     alert("Music added");  
+     alert("Music added");
+     
     } 
    
     
@@ -85,6 +88,7 @@ function AddSong(props) {
           />
      <input type="file" accept="audio/mp3" onChange={musicchanged} required/>
 
+     
       
     </div>
   );
