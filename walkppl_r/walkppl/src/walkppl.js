@@ -4,10 +4,12 @@ import {BsArrowLeftShort} from "react-icons/bs"
 import {BsArrowRightShort} from "react-icons/bs"
 import {FaPlay} from "react-icons/fa"
 import {FaPause} from "react-icons/fa"
+import {FaCoffee} from "react-icons/fa"
 import {MdLoop} from "react-icons/md"
 import {MdShuffle} from "react-icons/md"
 import {AiFillStepBackward} from "react-icons/ai"
 import {AiFillStepForward} from "react-icons/ai"
+import AddSong from "./Add";
 import coverimage from './album_covers/Paradise_Coldplay.png'
 
 const Walkppl = (props) => {
@@ -140,6 +142,10 @@ const Walkppl = (props) => {
         }
       };
 
+      const onUpload = ()=>{
+        setShowAddSong(false)
+      }
+
     return (
         <div className={styles.Walkppl}>
 
@@ -173,6 +179,20 @@ const Walkppl = (props) => {
 
                     {/* duration */}
                     <div className={styles.duration}>{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
+                </div>
+                <div>
+                {showAddSong? (
+                    <AddSong 
+                        onUpload={onUpload}
+                        songData={songData}
+                        setSongData={setSongData}
+                        mp3Data={mp3Data}
+                        setMp3Data={setMp3Data}
+                    />) : (
+                <button className={styles.playPause} onClick={() => setShowAddSong(true)}>
+                    <FaCoffee />
+                </button>
+            )}
                 </div>
                 <button className={styles.stepBack} onClick={() => SkipSong(false)}>
                     <AiFillStepBackward />

@@ -140,3 +140,7 @@
       transition: color 0.15s ease, border-color 0.15s ease;
       height: 400px;
       width: 900px; }
+
+    .AddSong {
+      text-color: #ffffff;
+    }

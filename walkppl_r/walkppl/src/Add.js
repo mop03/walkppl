@@ -1,12 +1,14 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FaCoffee} from "react-icons/fa"
 import {TextField} from '@material-ui/core';
 import React, { useState, useRef, useEffect } from "react";
 import db from "./firebase"
 import firebase from "firebase/compat/app"
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 
+
+
 function AddSong(props) {
- 
+  
     const [fileUrl, setFileUrl] = React.useState(null)
     const [musicUrl, setMusicUrl] = React.useState(null)
     const [disable, setDisable] = React.useState(true);
@@ -39,14 +41,19 @@ function AddSong(props) {
     
     e.preventDefault();
     if (musicUrl != null && fileUrl !== null) {
-    const musicname = e.target.musicname.value;
+    const musicname =props.songData.title;
+    console.log(musicname)
      if (!musicname) {
        return;
      }
      db.collection("Music").doc(musicname).set({
-       name: musicname,
-       music: musicUrl,
-       image: fileUrl,
+       title: musicname,
+       artist: props.songData.owner,
+       album: props.songData.album,
+       track: 'enjoy',
+       year: '2021',
+       img_src: fileUrl,
+       src: musicUrl,
      });
      alert("Music added");  
     } 
@@ -56,7 +63,7 @@ function AddSong(props) {
   return (
     <div className="Upload-Song">
       <button onClick={submit}>
-        <FontAwesomeIcon icon="faCoffee" />
+        <FaCoffee />
       </button>
       <TextField label="Title" 
           value={props.songData.title}
