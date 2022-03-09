@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import styles from './home.module.css';
 import Walkppl from './walkppl'
 import Header from './header'
+import Clickplaylist  from './clickPlaylist';
+import react, {useState, useRef, useEffect} from "react";
 import coverimage from './album_covers/Paradise_Coldplay.png'
 import playlistimage1 from './album_covers/cries_happy_tears.png'
 import playlistimage2 from './album_covers/drowning.png'
@@ -10,6 +12,11 @@ import playlistimage4 from './album_covers/road_trip.png'
 
 
 function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const togglePlaylist = () => {
+        setIsOpen(!isOpen);
+    }
   return (
     <div className={styles.container}>
 
@@ -19,30 +26,37 @@ function App() {
 
       <main className={styles.main}>
       <div className={styles.grid}>
-          <div className={styles.card}>
+          <div className={styles.card} onClick={togglePlaylist}>
             <img src={playlistimage1} width='100%'/>
             <h2>Cries Happy Tears</h2>
             <p>Happy music for happy times.</p>
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.card} onClick={togglePlaylist}>
             <img src={playlistimage2} width='100%'/>
             <h2>Drowning</h2>
             <p>Sad music for sad times.</p>
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.card} onClick={togglePlaylist}>
             <img src={playlistimage3} width='100%'/>
             <h2>Sleepy Time</h2>
             <p>I'm bored bro.</p>
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.card} onClick={togglePlaylist}>
             <img src={playlistimage4} width='100%'/>
             <h2>Road Trip</h2>
             <p>Hurtling towards doom at 90mph.</p>
           </div>
         </div>
+
+      {isOpen && <Clickplaylist
+      content={<>
+      </>}
+      handleClose={togglePlaylist}
+    />}
+      
       </main>
 
       <footer className={styles.footer}>

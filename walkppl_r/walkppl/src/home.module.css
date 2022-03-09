@@ -43,10 +43,9 @@
     justify-content:center;
     display: flex;
     max-width: 1500px;
-    height: 96vh;
-    width: 500vh;
-    right: 125px;
-    margin-top: -769px;
+    height: 120vh;
+    width: 900vh;
+    margin-top: 0px;
   }
   
   .card {
@@ -96,7 +95,7 @@
   .playlistsong{
     display: flex; 
   justify-content: space-between;
-  color: #8e07fc;
+  color: #fa10c7;
   }
 
   .line{

@@ -3,12 +3,12 @@ import {AiFillCloseCircle} from "react-icons/ai"
 import react, {useState, useRef, useEffect} from "react";
 import React from "react";
 
-const Clickplaylist = () => {
+const Clickplaylist = props => {
 
         return (
         <div className={styles.grid1}>
             <div className={styles.playlist} >
-                <header >PlayList Title <AiFillCloseCircle className={styles.closebutton} /></header>
+                <header >PlayList Title <AiFillCloseCircle className={styles.closebutton} onClick={props.handleClose}/></header>
                     <div className={styles.playlistheader}>
                         <p >Title</p>
                         <p >Album</p>
@@ -16,14 +16,13 @@ const Clickplaylist = () => {
                     </div>
                     <hr />
               <div className={styles.playlistsong} >
-                <p>song name</p>
-                <p>aalbum name</p>
-                <p>Date song added</p>
+                <p>Song name</p>
+                <p>Album name</p>
+                <p>Date added</p>
               </div>
               <hr className={styles.line}/>
             </div>
-             </div> 
-            
+             </div>   
         )
     }
 
