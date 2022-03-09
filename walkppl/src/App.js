@@ -6,6 +6,8 @@ import db from "./firebase"
 function App() {
   const [users, setUsers] = useState([]);
 
+
+
 // list of hard coded songs with attributes
 useEffect(() => {
   const fetchUsers = async () => {
@@ -42,6 +44,7 @@ useEffect(() => {
         setCurrentSongIndex={setCurrentSongIndex}
         nextSongIndex={nextSongIndex}
         songs={users}
+        shuffle={setUsers}
       />
     </div>
   );
