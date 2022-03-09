@@ -94,6 +94,7 @@ function App() {
           setCurrentSongIndex={setCurrentSongIndex}
           nextSongIndex={nextSongIndex}
           songs={users}
+          shuffle={setUsers}
         />
       </footer>
     </div>

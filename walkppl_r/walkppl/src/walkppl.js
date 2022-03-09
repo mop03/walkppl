@@ -17,7 +17,6 @@ const Walkppl = (props) => {
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [isLoop, setIsLoop] = useState(false);
-    const [isShuffle, setIsShuffle] = useState(false);
     const [showAddSong, setShowAddSong] = useState(false);
     const [songData , setSongData] = useState({});
     const [mp3Data , setMp3Data] = useState();
@@ -37,7 +36,6 @@ const Walkppl = (props) => {
         if (currentTime == duration) {
             SkipSong();
         }
-        console.log(duration);
     })
 
     const calculateTime = (secs) => {
@@ -63,10 +61,6 @@ const Walkppl = (props) => {
 
     const toggleLoop = () => {
         setIsLoop(!isLoop);
-    }
-
-    const toggleShuffle = () => {
-        setIsShuffle(!isShuffle);
     }
 
     const whilePlaying = () => {
@@ -96,31 +90,54 @@ const Walkppl = (props) => {
     }
 
     const SkipSong = (forwards = true) => {
-        if (forwards) {
-          props.setCurrentSongIndex(() => {
-            let temp = props.currentSongIndex;
-            temp++;
-    
-            if (temp > props.songs.length - 1) {
-              temp = 0;
+        if (!isLoop) {
+            if (forwards) {
+                props.setCurrentSongIndex(() => {
+                  let temp = props.currentSongIndex;
+                  temp++;
+          
+                  if (temp > props.songs.length - 1) {
+                    temp = 0;
+                  }
+          
+                  return temp;
+                });
+            } else {
+                props.setCurrentSongIndex(() => {
+                  let temp = props.currentSongIndex;
+                  temp--;
+          
+                  if (temp < 0) {
+                    temp = props.songs.length - 1;
+                  }
+          
+                  return temp;
+                });
             }
-    
-            return temp;
-          });
-        } else {
-          props.setCurrentSongIndex(() => {
-            let temp = props.currentSongIndex;
-            temp--;
-    
-            if (temp < 0) {
-              temp = props.songs.length - 1;
-            }
-    
-            return temp;
-          });
         }
         ProgressBar.current.value = 0;
         changeRange();
+      };
+
+      const ShuffleSongs = (shuffle = true) => {
+        if (shuffle) {
+          console.log('shuffle')
+          WalkPeople.current.pause();
+            props.shuffle(() => {
+            let temp1 = props.songs;
+            temp1 = temp1.sort(() => Math.random() - 0.5)
+              return temp1;
+          });
+          
+           props.setCurrentSongIndex(() => {
+            if (props.currentSongIndex == 0) {
+              return props.currentSongIndex + 1;
+            }
+            else {
+                return props.currentSongIndex - 1; 
+            } 
+          });
+        }
       };
 
     return (
@@ -163,8 +180,8 @@ const Walkppl = (props) => {
                 <button className={styles.stepFront} onClick={() => SkipSong()}>
                     <AiFillStepForward />
                 </button>
-                <button onClick={toggleShuffle} className={styles.shuffleButton}>
-                    { isShuffle ? <MdShuffle /> : <MdShuffle className={styles.notShuffle}/> }
+                <button className={styles.shuffleButton} onClick={() => ShuffleSongs()}>
+                    <MdShuffle />
                 </button>
                 <button onClick={toggleLoop} className={styles.loopButton}>
                     { isLoop ? <MdLoop /> : <MdLoop className={styles.notLooping}/> }
