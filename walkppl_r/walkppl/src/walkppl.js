@@ -1,4 +1,4 @@
-import react, {useState, useRef, useEffect} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import styles from "./walkppl.module.css";
 import {BsArrowLeftShort} from "react-icons/bs"
 import {BsArrowRightShort} from "react-icons/bs"
@@ -8,10 +8,9 @@ import {MdLoop} from "react-icons/md"
 import {MdShuffle} from "react-icons/md"
 import {AiFillStepBackward} from "react-icons/ai"
 import {AiFillStepForward} from "react-icons/ai"
-import soundfile from './audio_samples/Paradise_Coldplay.mp3'
 import coverimage from './album_covers/Paradise_Coldplay.png'
 
-const Walkppl = () => {
+const Walkppl = (props) => {
 
     //state
     const [isPlaying, setIsPlaying] = useState(false);
@@ -19,6 +18,9 @@ const Walkppl = () => {
     const [currentTime, setCurrentTime] = useState(0);
     const [isLoop, setIsLoop] = useState(false);
     const [isShuffle, setIsShuffle] = useState(false);
+    const [showAddSong, setShowAddSong] = useState(false);
+    const [songData , setSongData] = useState({});
+    const [mp3Data , setMp3Data] = useState();
 
     //references
     const WalkPeople = useRef();
@@ -30,6 +32,13 @@ const Walkppl = () => {
         setDuration(seconds);
         ProgressBar.current.max = seconds;
     }, [WalkPeople?.current?.loadedmetadata, WalkPeople?.current?.readyState]);
+
+    useEffect(() => {
+        if (currentTime == duration) {
+            SkipSong();
+        }
+        console.log(duration);
+    })
 
     const calculateTime = (secs) => {
         const minutes = Math.floor(secs / 60);
@@ -86,21 +95,45 @@ const Walkppl = () => {
         changeRange();
     }
 
-    const albumArt = () => {
-        return <img src={coverimage} alt='album'/>
-    }
+    const SkipSong = (forwards = true) => {
+        if (forwards) {
+          props.setCurrentSongIndex(() => {
+            let temp = props.currentSongIndex;
+            temp++;
+    
+            if (temp > props.songs.length - 1) {
+              temp = 0;
+            }
+    
+            return temp;
+          });
+        } else {
+          props.setCurrentSongIndex(() => {
+            let temp = props.currentSongIndex;
+            temp--;
+    
+            if (temp < 0) {
+              temp = props.songs.length - 1;
+            }
+    
+            return temp;
+          });
+        }
+        ProgressBar.current.value = 0;
+        changeRange();
+      };
 
     return (
         <div className={styles.Walkppl}>
 
             <div className={styles.audioPlayer}>
-                <audio ref={WalkPeople} src={soundfile} preload="metadata"></audio>
+                <audio ref={WalkPeople} src={props.songs[props.currentSongIndex]?.src} preload="metadata"></audio>
 
                 <div className={styles.songData}>
-                    <div className={styles.coverArt}><img src={coverimage} height={80} width={80}/></div>
+                    <div className={styles.coverArt}><img src={props.songs[props.currentSongIndex]?.img_src} height={80} width={80}/></div>
                     <div className={styles.otherSongDetails}>
-                        <div className={styles.songTitle}>Paradise</div>
-                        <div className={styles.artistName}>Coldplay</div>
+                        <div className={styles.songTitle}>{props.songs[props.currentSongIndex]?.title}</div>
+                        <div className={styles.artistName}>{props.songs[props.currentSongIndex]?.artist}</div>
                     </div>
                 </div>
                 
@@ -124,10 +157,10 @@ const Walkppl = () => {
                     {/* duration */}
                     <div className={styles.duration}>{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
                 </div>
-                <button className={styles.stepBack}>
+                <button className={styles.stepBack} onClick={() => SkipSong(false)}>
                     <AiFillStepBackward />
                 </button>
-                <button className={styles.stepFront}>
+                <button className={styles.stepFront} onClick={() => SkipSong()}>
                     <AiFillStepForward />
                 </button>
                 <button onClick={toggleShuffle} className={styles.shuffleButton}>

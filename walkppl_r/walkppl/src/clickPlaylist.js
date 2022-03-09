@@ -2,6 +2,7 @@ import styles from "./home.module.css";
 import {AiFillCloseCircle} from "react-icons/ai"
 import react, {useState, useRef, useEffect} from "react";
 import React from "react";
+import Walkppl from './walkppl'
 
 const Clickplaylist = props => {
 
@@ -25,6 +26,5 @@ const Clickplaylist = props => {
              </div>   
         )
     }
-
 
 export default Clickplaylist
