@@ -12,6 +12,9 @@ import db from "./firebase"
 import firebase from "firebase/compat/app"
 
 const NewSong = (props) => { 
+    const title = props.title
+    const artist = props.artist_name
+    const album = props.album_name
     const [isOpen, setIsOpen] = useState(false);
     const togglePlay = () => {
             setIsOpen(!isOpen);
@@ -22,9 +25,9 @@ const NewSong = (props) => {
             audio.play()
           }
     return (<><div className={styles.playlistsong} onClick={togglePlay} >
-        <p>Song name</p>
-        <p>Artist name</p>
-        <p>some album</p>
+        <p id="titleid">{title}</p>
+        <p id="artistid">{artist}</p>
+        <p id="albumid">{album}</p>
         {isOpen && start()} 
       </div>
       <hr className={styles.line}/></>)
@@ -83,7 +86,8 @@ const Clickplaylist = props => {
            img_src: fileUrl,
            src: musicUrl,
          });
-         AddSong2()
+         AddSong2(props.songData.title,props.songData.owner,props.songData.album)
+         console.log(props.songdata.title)
          alert("Music added");
         } 
        
@@ -123,9 +127,9 @@ const Clickplaylist = props => {
     const [showAddSong, setShowAddSong] = useState(false);
     const [songData , setSongData] = useState({});
     const [mp3Data , setMp3Data] = useState();
-    const AddSong2 = event => {
+    const AddSong2 = (t,artist,album) => {
         console.log('hi')
-        setAdd(add.concat(<NewSong key={add.length}/>));
+        setAdd(add.concat(<NewSong key={add.length} title={t} artist_name = {artist} album_name = {album}/>));
     };
    
    
