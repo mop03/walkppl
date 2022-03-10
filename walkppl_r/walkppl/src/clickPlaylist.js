@@ -19,7 +19,7 @@ const NewSong = (props) => {
     const togglePlay = () => {
             setIsOpen(!isOpen);
         } 
-    let audio = new Audio(soundfile)
+    let audio = new Audio(props.songs.src)
     const start = () => {
             
             audio.play()
@@ -32,10 +32,6 @@ const NewSong = (props) => {
       </div>
       <hr className={styles.line}/></>)
 }
-
-
-
-    
 
 const Clickplaylist = props => {
     function AddSong(props) {
@@ -141,7 +137,7 @@ const Clickplaylist = props => {
     const start = () => {
             
             audio.play()
-          }
+        }
     const onUpload = ()=>{
         setShowAddSong(false)
       }

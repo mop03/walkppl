@@ -3,6 +3,7 @@ import styles from './home.module.css';
 import Walkppl from './walkppl'
 import Header from './header'
 import Clickplaylist  from './clickPlaylist';
+import AppSearch from './app_search'
 import react, {useState, useRef, useEffect} from "react";
 import coverimage from './album_covers/Paradise_Coldplay.png'
 import db from './firebase'
@@ -52,6 +53,13 @@ function App() {
 
       <header className={styles.header}>
         <Header />
+        <AppSearch 
+          currentSongIndex={currentSongIndex}
+          setCurrentSongIndex={setCurrentSongIndex}
+          nextSongIndex={nextSongIndex}
+          songs={users}
+          shuffle={setUsers}
+        />
       </header>
 
       <main className={styles.main}>
