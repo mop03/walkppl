@@ -1,14 +1,19 @@
-import Search1 from './search'
+import SearchBar from './search'
 import React, { useState } from 'react';
 import styles from './search.module.css'
 
 function Search(props) {
-    
+    const title = props.title
+        const artist = props.artist_name
+        const album = props.album_name
     const [isOpen, setIsOpen] = useState(false);
     const togglePlay = () => {
         setIsOpen(!isOpen);
     } 
-
+    const start = (title) => {
+        console.log(title)
+        props.setSong(title)
+      }
     const NewSong = (props) => { 
         const title = props.title
         const artist = props.artist_name
@@ -52,7 +57,7 @@ function Search(props) {
     
     return (
         <div className={styles.searchBar}>
-            <Search1
+            <SearchBar
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
@@ -68,6 +73,8 @@ function Search(props) {
                         <p className={styles.title}>{post.title}</p>
                         <p className={styles.artist}>{post.artist}</p>
                         <p className={styles.album}>{post.album}</p>
+                        {isOpen && start(post.title)} 
+                        
                     </button>
                 ))}
                 

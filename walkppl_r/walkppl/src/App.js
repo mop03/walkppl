@@ -18,6 +18,142 @@ function App() {
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
     const WalkPeople1 = useRef()
+    const [isPlaying1, setIsPlaying1] = useState(false);
+    const [duration1, setDuration1] = useState(0);
+    const [currentTime1, setCurrentTime1] = useState(0);
+    const [isLoop1, setIsLoop1] = useState(false);
+    const [showAddSong1, setShowAddSong1] = useState(false);
+    const [songData1 , setSongData1] = useState({});
+    const [mp3Data1 , setMp3Data1] = useState();
+    const ProgressBar1 = useRef();
+    const AnimationRef1 = useRef();
+
+    const setSong = (title) => {
+      console.log(';success')
+      let temp1 = users;
+      let temp2 = currentSongIndex 
+      console.log(title)
+      for(var i =0; i <= users.length; i++){
+        
+        if(temp1[i]?.title == title){
+          
+          setCurrentSongIndex(() => {
+            console.log(i)
+            return i
+          })
+          break
+        }
+      }
+      ProgressBar1.current.value = 0;
+      changeRange();
+      
+    }
+
+    const calculateTime = (secs) => {
+        const minutes = Math.floor(secs / 60);
+        const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        const seconds = Math.floor(secs % 60);
+        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+        return `${returnedMinutes}:${returnedSeconds}`;
+    }
+
+    const togglePlay = () => {
+        const prevValue = isPlaying1;
+        setIsPlaying1(!prevValue);
+        if (!prevValue) {
+            WalkPeople1.current.play();
+            AnimationRef1.current = requestAnimationFrame(whilePlaying);
+        }
+        else {
+            WalkPeople1.current.pause();
+            cancelAnimationFrame(AnimationRef1.current);
+        }
+    }
+
+    const toggleLoop = () => {
+        setIsLoop1(!isLoop1);
+    }
+
+    const whilePlaying = () => {
+        ProgressBar1.current.value = WalkPeople1.current.currentTime;
+        changePlayerTime();
+        AnimationRef1.current = requestAnimationFrame(whilePlaying);
+    }
+
+    const changeRange = () => {
+        WalkPeople1.current.currentTime1 = ProgressBar1.current.value;
+        changePlayerTime();
+    }
+
+    const changePlayerTime = () => {
+        ProgressBar1.current.style.setProperty('--seek-before-width', `${ProgressBar1.current.value / duration1 * 100}%`);
+        setCurrentTime1(ProgressBar1.current.value);
+    }
+
+    const backTen = () => {
+        ProgressBar1.current.value = Number(ProgressBar1.current.value) - 10;
+        changeRange();
+    }
+
+    const forwardTen = () => {
+        ProgressBar1.current.value = Number(ProgressBar1.current.value) + 10;
+        changeRange();
+    }
+
+    const SkipSong = (forwards = true) => {
+        if (!isLoop1) {
+            if (forwards) {
+                setCurrentSongIndex(() => {
+                  let temp = currentSongIndex;
+                  temp++;
+          
+                  if (temp > users.length - 1) {
+                    temp = 0;
+                  }
+          
+                  return temp;
+                });
+            } else {
+                setCurrentSongIndex(() => {
+                  let temp = currentSongIndex;
+                  temp--;
+          
+                  if (temp < 0) {
+                    temp = users.length - 1;
+                  }
+          
+                  return temp;
+                });
+            }
+        }
+        ProgressBar1.current.value = 0;
+        changeRange();
+      };
+
+      const ShuffleSongs = (shuffle = true) => {
+        if (shuffle) {
+          console.log('shuffle')
+          WalkPeople1.current.pause();
+            shuffle(() => {
+            let temp1 = users;
+            temp1 = temp1.sort(() => Math.random() - 0.5)
+              return temp1;
+          });
+          
+           setCurrentSongIndex(() => {
+            if (currentSongIndex == 0) {
+              return currentSongIndex + 1;
+            }
+            else {
+                return currentSongIndex - 1; 
+            } 
+          });
+        }
+      };
+
+      const onUpload = ()=>{
+        setShowAddSong1(false)
+      }
     const togglePlaylist = () => {
         setIsOpen(!isOpen);
     }
@@ -91,6 +227,7 @@ function App() {
           songs={users}
           shuffle={setUsers}
           handleClose={togglePlaylist}
+          setSong={setSong}
         />}
       </main>
 
@@ -98,10 +235,36 @@ function App() {
         <Walkppl 
           WalkPeople1={WalkPeople1}
           currentSongIndex={currentSongIndex}
+          ProgressBar1={ProgressBar1}
+          AnimationRef1={AnimationRef1}
           setCurrentSongIndex={setCurrentSongIndex}
           nextSongIndex={nextSongIndex}
           songs={users}
           shuffle={setUsers}
+          isPlaying1={isPlaying1}
+          duration1={duration1}
+          currentTime1={currentTime1}
+          isLoop1={isLoop1}
+          showAddSong1={showAddSong1}
+          songData1={songData1}
+          mp3Data1={mp3Data1}
+          setSongData1={setSongData1}
+          setMp3Data1={setMp3Data1}
+          setDuration1={setDuration1}
+          calculateTime1={calculateTime}
+          backTen1={backTen}
+          forwardTen1={forwardTen}
+          changeRange1={changeRange}
+          onUpload1={onUpload}
+          SkipSong1={SkipSong}
+          ShuffleSongs1={ShuffleSongs}
+          toggleLoop1={toggleLoop}
+          setShowAddSong1={setShowAddSong1}
+          togglePlay={togglePlay}
+          setIsPlaying1={setIsPlaying1}
+          
+          setCurrentTime1={setCurrentTime1}
+          setIsLoop1={setIsLoop1}
         />
       </footer>
     </div>

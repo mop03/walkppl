@@ -197,6 +197,7 @@ const Clickplaylist = props => {
                         setSongData={setSongData}
                         mp3Data={mp3Data}
                         setMp3Data={setMp3Data}
+                        
                     />) : (
                 <button className={styles.submit} onClick={() => {setShowAddSong(true)}}>
                     <MdAddCircle />
@@ -209,6 +210,7 @@ const Clickplaylist = props => {
                   nextSongIndex={nextSongIndex}
                   songs={users}
                   shuffle={setUsers}
+                  setSong={props.setSong}
                 />
             </div>
           </div>   

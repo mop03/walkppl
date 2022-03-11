@@ -25,8 +25,8 @@ const Walkppl = (props) => {
 
     //references
     const WalkPeople = props.WalkPeople1;
-    const ProgressBar = useRef();
-    const AnimationRef = useRef();
+    const ProgressBar = props.ProgressBar1;
+    const AnimationRef = props.AnimationRef1;
     
     useEffect(() => {
         const seconds = Math.floor(WalkPeople.current.duration);
