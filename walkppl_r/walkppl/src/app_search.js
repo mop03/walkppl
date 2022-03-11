@@ -4,6 +4,28 @@ import styles from './search.module.css'
 
 function Search(props) {
     
+    const [isOpen, setIsOpen] = useState(false);
+    const togglePlay = () => {
+        setIsOpen(!isOpen);
+    } 
+
+    const NewSong = (props) => { 
+        const title = props.title
+        const artist = props.artist_name
+        const album = props.album_name
+        let audio = new Audio(props.songs.src)
+        const start = () => {
+                audio.play()
+              }
+        return (<><div className={styles.playlistsong} onClick={togglePlay} >
+            <p id="titleid">{title}</p>
+            <p id="artistid">{artist}</p>
+            <p id="albumid">{album}</p>
+            {isOpen && start()} 
+          </div>
+          <hr className={styles.line}/></>)
+    }
+
     const filterPosts = (posts, query) => { 
         console.log({query:query});
     if (!query) {
@@ -34,10 +56,15 @@ function Search(props) {
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
+            <div className={styles.playlistheader}>
+                        <p id='title'>Title</p>
+                        <p id='artist'>Artist</p>
+                        <p id='album'>Album</p>
+                    </div>
+                    <hr />
             <div>
                 {filteredPosts.map((post) => (
-                    <button style={{ display: "block", marginTop:10, marginLeft: 50 }} type={post.artist}>{post.title}</button>
-                    
+                    <button className={styles.searchElements} type={post.artist} onClick={togglePlay}>{post.title}</button>
                 ))}
                 
             </div>

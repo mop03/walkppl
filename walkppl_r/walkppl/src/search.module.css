@@ -1,3 +1,18 @@
 .searchBar {
     z-index: 3;
 }
+
+.searchElements {
+    color: #fa10c7;
+    background-color: #000000;
+    font-family: monospace;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 50;
+}
+
+.playlistheader{
+    display: flex; 
+  justify-content: space-between;
+  }

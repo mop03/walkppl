@@ -22,7 +22,6 @@ const NewSong = (props) => {
         } 
     let audio = new Audio(props.songs.src)
     const start = () => {
-            
             audio.play()
           }
     return (<><div className={styles.playlistsong} onClick={togglePlay} >
@@ -190,19 +189,13 @@ const Clickplaylist = props => {
                 </button> ) } 
                 <AiFillCloseCircle className={styles.closebutton} onClick={props.handleClose}/>     
                  </header>
-                 <AppSearch 
+                    <AppSearch 
                   currentSongIndex={currentSongIndex}
                   setCurrentSongIndex={setCurrentSongIndex}
                   nextSongIndex={nextSongIndex}
                   songs={users}
                   shuffle={setUsers}
                 />
-                    <div className={styles.playlistheader}>
-                        <p id='title'>Title</p>
-                        <p id='artist'>Artist</p>
-                        <p id='album'>Album</p>
-                    </div>
-                    <hr />
         <div className={styles.playlistsong} onClick={togglePlay} >
             <p>{props.songData?.title}</p>
             <p>Oatmello</p>
