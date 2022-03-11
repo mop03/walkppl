@@ -11,26 +11,53 @@ import {AiFillStepBackward} from "react-icons/ai"
 import {AiFillStepForward} from "react-icons/ai"
 import AddSong from "./Add";
 import coverimage from './album_covers/Paradise_Coldplay.png'
+import { PropTypes } from 'react'
 
 const Walkppl = (props) => {
 
     //state
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [duration, setDuration] = useState(0);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [isLoop, setIsLoop] = useState(false);
-    const [showAddSong, setShowAddSong] = useState(false);
-    const [songData , setSongData] = useState({});
-    const [mp3Data , setMp3Data] = useState();
+    const isPlaying = props.isPlaying1
+    const setIsPlaying = () => {props.setIsPlaying1()}
+    const duration = props.duration1
+    const setDuration = () => {props.setDuration1()}
+    const currentTime = props.currentTime1
+    const setCurrentTime = () => { props.setCurrentTime1()}
+    const isLoop = props.isLoop1
+    const setIsLoop = () => {props.setIsLoop1()}
+    const showAddSong = props.showAddSong1
+    const setShowAddSong = () => {props.setShowAddSong1()}
+    const songData = props.songData1
+    const setSongData = () => {props.setSongData1()}
+    const mp3Data= props.mp3Data1
+    const setMp3Data =() => { props.setMp3Data1()}
+
 
     //references
     const WalkPeople = props.WalkPeople1;
-    const ProgressBar = useRef();
-    const AnimationRef = useRef();
+    const ProgressBar = props.ProgressBar1;
+    const AnimationRef = props.AnimationRef1;
     
+
+    // const calculateTime = () => {props.calculateTime1()}
+    // const backTen = () => {props.backTen1()}
+    // const togglePlay = () => {props.togglePlay1()}
+    // const forwardTen = () => {props.forwardTen1()}
+    // const changeRange = () => {props.changeRange1()}
+    // const onUpload = () => {props.onUpload1()}
+    // const SkipSong = () => {props.SkipSong1()}
+    // const ShuffleSongs = () => {props.ShuffleSongs1()}
+    // const toggleLoop = () => {props.toggleLoop1()}
+    const calculateTime = (secs) => {
+        const minutes = Math.floor(secs / 60);
+        const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        const seconds = Math.floor(secs % 60);
+        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+        return `${returnedMinutes}:${returnedSeconds}`;
+    }
     useEffect(() => {
         const seconds = Math.floor(WalkPeople.current.duration);
         setDuration(seconds);
+        console.log(seconds)
         ProgressBar.current.max = seconds;
     }, [WalkPeople?.current?.loadedmetadata, WalkPeople?.current?.readyState]);
 
@@ -40,17 +67,10 @@ const Walkppl = (props) => {
         }
     })
 
-    const calculateTime = (secs) => {
-        const minutes = Math.floor(secs / 60);
-        const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-        const seconds = Math.floor(secs % 60);
-        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-        return `${returnedMinutes}:${returnedSeconds}`;
-    }
 
     const togglePlay = () => {
         const prevValue = isPlaying;
-        setIsPlaying(!prevValue);
+        props.setIsPlaying1(!prevValue);
         if (!prevValue) {
             WalkPeople.current.play();
             AnimationRef.current = requestAnimationFrame(whilePlaying);
@@ -62,7 +82,7 @@ const Walkppl = (props) => {
     }
 
     const toggleLoop = () => {
-        setIsLoop(!isLoop);
+        props.setIsLoop1(!isLoop);
     }
 
     const whilePlaying = () => {
@@ -78,7 +98,7 @@ const Walkppl = (props) => {
 
     const changePlayerTime = () => {
         ProgressBar.current.style.setProperty('--seek-before-width', `${ProgressBar.current.value / duration * 100}%`);
-        setCurrentTime(ProgressBar.current.value);
+        props.setCurrentTime1(ProgressBar.current.value);
     }
 
     const backTen = () => {
@@ -143,9 +163,8 @@ const Walkppl = (props) => {
       };
 
       const onUpload = ()=>{
-        setShowAddSong(false)
+        props.setShowAddSong1(false)
       }
-
     return (
         <div className={styles.Walkppl}>
 
@@ -164,7 +183,7 @@ const Walkppl = (props) => {
                     <button className={styles.backward} onClick={backTen}><BsArrowLeftShort /> 10</button>
 
                     <button onClick={togglePlay} className={styles.playPause}>
-                        { isPlaying ? <FaPause /> : <FaPlay className={styles.play}/> }
+                        {isPlaying ? <FaPause /> : <FaPlay className={styles.play}/> }
                     </button>
 
                     <button className={styles.forward} onClick={forwardTen}>10 <BsArrowRightShort /></button>
@@ -185,11 +204,11 @@ const Walkppl = (props) => {
                     <AddSong 
                         onUpload={onUpload}
                         songData={songData}
-                        setSongData={setSongData}
+                        setSongData={props.setSongData1()}
                         mp3Data={mp3Data}
-                        setMp3Data={setMp3Data}
+                        setMp3Data={props.setMp3Data1()}
                     />) : (
-                <button className={styles.playPause} onClick={() => setShowAddSong(true)}>
+                <button className={styles.playPause} onClick={() => props.setShowAddSong1(true)}>
                     <FaCoffee />
                 </button>
             )}

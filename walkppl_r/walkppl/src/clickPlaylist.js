@@ -120,6 +120,25 @@ const Clickplaylist = props => {
       );
     }
     const WalkPeople = props.WalkPeople1
+
+
+    //new
+
+
+
+
+
+
+
+
+
+    //new
+
+
+
+
+
+
     const[add,setAdd] = useState([]);
     const [showAddSong, setShowAddSong] = useState(false);
     const [songData , setSongData] = useState({});
