@@ -24,7 +24,7 @@ const Walkppl = (props) => {
     const [mp3Data , setMp3Data] = useState();
 
     //references
-    const WalkPeople = useRef();
+    const WalkPeople = props.WalkPeople1;
     const ProgressBar = useRef();
     const AnimationRef = useRef();
     

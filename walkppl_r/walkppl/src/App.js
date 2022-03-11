@@ -18,7 +18,7 @@ function App() {
     const [users, setUsers] = useState([]);
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
-
+    const WalkPeople1 = useRef()
     const togglePlaylist = () => {
         setIsOpen(!isOpen);
     }
@@ -92,12 +92,14 @@ function App() {
         {isOpen && <Clickplaylist
           content={<>
           </>}
+          WalkPeople1={WalkPeople1}
           handleClose={togglePlaylist}
         />}
       </main>
 
       <footer className={styles.footer}>
         <Walkppl 
+          WalkPeople1={WalkPeople1}
           currentSongIndex={currentSongIndex}
           setCurrentSongIndex={setCurrentSongIndex}
           nextSongIndex={nextSongIndex}

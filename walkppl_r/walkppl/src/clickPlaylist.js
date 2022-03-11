@@ -119,6 +119,7 @@ const Clickplaylist = props => {
         </div>
       );
     }
+    const WalkPeople = props.WalkPeople1
     const[add,setAdd] = useState([]);
     const [showAddSong, setShowAddSong] = useState(false);
     const [songData , setSongData] = useState({});
@@ -133,10 +134,8 @@ const Clickplaylist = props => {
     const togglePlay = () => {
             setIsOpen(!isOpen);
         } 
-    let audio = new Audio(soundfile)
-    const start = () => {
-            
-            audio.play()
+    const start = () => { 
+          WalkPeople.current.play()
         }
     const onUpload = ()=>{
         setShowAddSong(false)
@@ -172,6 +171,7 @@ const Clickplaylist = props => {
             <p>Oatmello</p>
             <p>Snapshots</p>
          {isOpen && start()} 
+         
       </div>
       <hr className={styles.line}/>
       <div className={styles.playlistsong} onClick={togglePlay} >
