@@ -198,7 +198,7 @@ const Clickplaylist = props => {
                         mp3Data={mp3Data}
                         setMp3Data={setMp3Data}
                     />) : (
-                <button className={styles.playPause} onClick={() => {setShowAddSong(true)}}>
+                <button className={styles.submit} onClick={() => {setShowAddSong(true)}}>
                     <MdAddCircle />
                 </button> ) } 
                 <AiFillCloseCircle className={styles.closebutton} onClick={props.handleClose}/>     

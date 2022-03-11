@@ -237,7 +237,7 @@
 }
 
 .shuffleButton {
-    color: var(--secondary);
+    color: var(--primary);
     background: none;
     border: none;
     display: flex;
