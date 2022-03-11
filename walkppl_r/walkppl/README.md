@@ -38,7 +38,7 @@ you can add ANY songs to your playlist
 
 ```
 cd walkppl/walkppl
-yarn install -or- nmp install
+yarn install -or- npm install
 ```
 
 ## Set up
@@ -48,12 +48,12 @@ npm start
 ```
 
 2. To implement your own firebase start with Step 1 of [this doc](https://firebase.google.com/docs/web/setup)
-    and replace your app's Firebase project configuration code found in the project's setting in firebase console with the firbase.js file in the repo. 
+    and replace your app's Firebase project configuration code found in the project's setting in firebase console with the firebase.js file in the repo. 
 # Technologies Used
 
 * React
 * CSS
-* Firbase/Firestore
+* Firebase/Firestore
 
 # Project Team Members 
 
@@ -62,7 +62,7 @@ npm start
 | Newsha Niazmandi  / SW Developer  |    [Newsha](https://www.linkedin.com/in/newsha-niazmandi/)   |
 | Maraim Masud / SW Developer   |     [Mariam](https://www.linkedin.com/in/mariam-masud-992461200)  |
 | Gautam Mahes / SW Developer   |   [Gautam](https://www.linkedin.com/in/gautam-mahes-4960471a8/)|
-| Sushrut Wate  / SW Developer   |      |
+| Sushrut Wate  / SW Developer   |      [Sushrut](https://www.linkedin.com/in/sushrut-wate/)|
 | Ishani Sarkar / SW Developer   |    [Ishani](https://www.linkedin.com/in/ishani-sarkar-a711891b9/)   |
 <<<<<<< HEAD
 
