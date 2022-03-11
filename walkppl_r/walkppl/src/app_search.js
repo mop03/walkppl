@@ -69,13 +69,13 @@ function Search(props) {
                     <hr />
             <div>
                 {filteredPosts.map((post) => (
-                    <button className={styles.searchElements} type={post.artist} onClick={togglePlay}>
+                    <div className={styles.searchElements} type={post.artist} onClick={togglePlay}>
                         <p className={styles.title}>{post.title}</p>
                         <p className={styles.artist}>{post.artist}</p>
                         <p className={styles.album}>{post.album}</p>
                         {isOpen && start(post.title)} 
                         
-                    </button>
+                    </div>
                 ))}
                 
             </div>
