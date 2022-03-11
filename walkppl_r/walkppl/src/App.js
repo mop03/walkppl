@@ -33,14 +33,14 @@ function App() {
     const AnimationRef1 = useRef();
 
     const setSong = (title) => {
-      console.log(';success')
       let temp1 = users;
       let temp2 = currentSongIndex 
+      console.log(users[users.length-1])
       for(var i =0; i <= users.length; i++){
         if(users[i]?.title == title){
-          
+
           setCurrentSongIndex(() => {
-            console.log(i)
+            
             return i
           })
           break

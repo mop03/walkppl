@@ -12,7 +12,7 @@ import db from "./firebase"
 import firebase from "firebase/compat/app"
 
 const NewSong = (props) => { 
-    const title1 = props.title
+    const title = props.title
     const artist = props.artist_name
     const album = props.album_name
     const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +21,10 @@ const NewSong = (props) => {
         } 
     const start = () => {
             
-      props.setSong(title1)
+            props.setSong(title)
           }
     return (<><div className={styles.playlistsong} onClick={togglePlay} >
-        <p id="titleid">{title1}</p>
+        <p id="titleid">{title}</p>
         <p id="artistid">{artist}</p>
         <p id="albumid">{album}</p>
         {isOpen && start()} 
@@ -82,7 +82,6 @@ const Clickplaylist = props => {
            src: musicUrl,
          });
          AddSong2(props.songData.title,props.songData.owner,props.songData.album)
-         console.log(props.songdata.title)
          alert("Music added");
         } 
        
@@ -144,17 +143,17 @@ const Clickplaylist = props => {
     const [mp3Data , setMp3Data] = useState();
     const AddSong2 = (t,artist,album) => {
         console.log('hi')
-        setAdd(add.concat(<NewSong key={add.length} title={t} artist_name = {artist} album_name = {album} setSong = {props.setSong}/>));
+        setAdd(add.concat(<NewSong key={add.length} title={t} artist_name = {artist} album_name = {album} setSong={props.setSong}/>));
     };
    
    
     const [isOpen, setIsOpen] = useState(false);
-    // const togglePlay = () => {
-    //         setIsOpen(!isOpen);
-    //     } 
-    // const start = () => { 
-    //   props.setSong('COPYCAT')
-    //     }
+    const togglePlay = () => {
+            setIsOpen(!isOpen);
+        } 
+    const start = () => { 
+          props.setSong('Goliath')
+        }
     const onUpload = ()=>{
         setShowAddSong(false)
       }
@@ -163,8 +162,7 @@ const Clickplaylist = props => {
         
         <div className={styles.grid1}>
             <div className={styles.playlist} >
-                <header >Playlist
-                <AiFillCloseCircle className={styles.closebutton} onClick={props.handleClose}/> 
+                <header >Cries Happy Tears
                     {showAddSong? (
                     <AddSong 
                         onUpload={onUpload}
@@ -176,7 +174,7 @@ const Clickplaylist = props => {
                 <button className={styles.playPause} onClick={() => {setShowAddSong(true)}}>
                     <MdAddCircle />
                 </button> ) } 
-                
+                <AiFillCloseCircle className={styles.closebutton} onClick={props.handleClose}/> 
                         
                  </header>
                     <div className={styles.playlistheader}>
@@ -185,6 +183,28 @@ const Clickplaylist = props => {
                         <p id='album'>Album</p>
                     </div>
                     <hr />
+        <div className={styles.playlistsong} onClick={togglePlay} >
+            <p>88 Keys</p>
+            <p>Oatmello</p>
+            <p>Snapshots</p>
+         {isOpen && start()} 
+         
+      </div>
+      <hr className={styles.line}/>
+      <div className={styles.playlistsong} onClick={togglePlay} >
+            <p>$Sorry</p>
+            <p>Peachy!</p>
+            <p>Shiloh</p>
+         {isOpen && start()} 
+      </div>
+      <hr className={styles.line}/>
+      <div className={styles.playlistsong} onClick={togglePlay} >
+            <p>Affection</p>
+            <p>jinsang</p>
+            <p>Life</p>
+         {isOpen && start()} 
+      </div>
+      <hr className={styles.line}/>
             {add}
             </div>
              </div>   
