@@ -46,6 +46,7 @@
     height: 120vh;
     width: 900vh;
     margin-top: 0px;
+    scroll-behavior: smooth;
   }
   .grid2 {
     position:absolute;
@@ -97,6 +98,7 @@
       height: 600px;
       width: 1200px;
       top: 100px;
+      scroll-behavior: smooth;
   }
 
   .playlistheader{

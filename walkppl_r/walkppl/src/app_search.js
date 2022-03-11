@@ -64,7 +64,11 @@ function Search(props) {
                     <hr />
             <div>
                 {filteredPosts.map((post) => (
-                    <button className={styles.searchElements} type={post.artist} onClick={togglePlay}>{post.title}</button>
+                    <button className={styles.searchElements} type={post.artist} onClick={togglePlay}>
+                        <p className={styles.title}>{post.title}</p>
+                        <p className={styles.artist}>{post.artist}</p>
+                        <p className={styles.album}>{post.album}</p>
+                    </button>
                 ))}
                 
             </div>

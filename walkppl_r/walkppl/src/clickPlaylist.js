@@ -210,31 +210,8 @@ const Clickplaylist = props => {
                   songs={users}
                   shuffle={setUsers}
                 />
-        <div className={styles.playlistsong} onClick={togglePlay} >
-            <p>{props.songData?.title}</p>
-            <p>Oatmello</p>
-            <p>Snapshots</p>
-         {isOpen && start()} 
-         
-      </div>
-      <hr className={styles.line}/>
-      <div className={styles.playlistsong} onClick={togglePlay} >
-            <p>$Sorry</p>
-            <p>Peachy!</p>
-            <p>Shiloh</p>
-         {isOpen && start()} 
-      </div>
-      <hr className={styles.line}/>
-      <div className={styles.playlistsong} onClick={togglePlay} >
-            <p>Affection</p>
-            <p>jinsang</p>
-            <p>Life</p>
-         {isOpen && start()} 
-      </div>
-      <hr className={styles.line}/>
-            {add}
             </div>
-             </div>   
+          </div>   
         )
     }
 
