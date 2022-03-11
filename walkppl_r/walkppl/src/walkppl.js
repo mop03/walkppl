@@ -182,7 +182,7 @@ const Walkppl = (props) => {
                 </div>
                 <div>
 
-                <a href="https://www.starbucks.com/" className={styles.nightFuel}>
+                <a href="https://www.buymeacoffee.com/" className={styles.nightFuel}>
                     <FaCoffee />
                 </a>
             

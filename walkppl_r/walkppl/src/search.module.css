@@ -1,5 +1,6 @@
 .searchBar {
     z-index: 3;
+    border: none;
 }
 
 .searchElements {

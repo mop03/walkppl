@@ -5,10 +5,11 @@ import react, {useState, useRef, useEffect} from "react";
 import React from "react";
 import AppSearch from './app_search'
 import Walkppl from './walkppl'
-import {FaCoffee} from "react-icons/fa"
+import {BsCheck} from "react-icons/bs"
 import soundfile from './audio_samples/Paradise_Coldplay.mp3'
 import {submit} from './Add'
 import {TextField} from '@material-ui/core';
+import { makeStyles } from "@material-ui/core/styles";
 import db from "./firebase"
 import firebase from "firebase/compat/app"
 
@@ -33,8 +34,15 @@ const NewSong = (props) => {
       <hr className={styles.line}/></>)
 }
 
+const useStyles = makeStyles({
+  input: {
+    color: '#07fcef'
+  }
+});
+
 const Clickplaylist = props => {
 
+  const classes = useStyles();
   const [users, setUsers] = useState([]);
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
@@ -121,18 +129,24 @@ const Clickplaylist = props => {
     }
       return (
         <div className="Upload-Song">
-          <button onClick={submit}>
-            <FaCoffee />
+          <button onClick={submit} className={styles.submit}>
+            <BsCheck />
           </button>
-          <TextField label="Title" 
+          <TextField label="Title"
+              inputProps={{ className: classes.input }}
+              InputLabelProps={{className: classes.input}}
               value={props.songData.title}
               onChange={e => props.setSongData({...props.songData, title: e.target.value})}
           />
-          <TextField label="Artist"
+          <TextField label="Artist" className={styles.form}
+          inputProps={{ className: classes.input }}
+          InputLabelProps={{className: classes.input}}
           value={props.songData.owner}
               onChange={e => props.setSongData({...props.songData, owner: e.target.value})}
           />
-          <TextField label="album" 
+          <TextField label="Album" className={styles.form}
+          inputProps={{ className: classes.input }}
+          InputLabelProps={{className: classes.input}}
           value={props.songData.album}
               onChange={e => props.setSongData({...props.songData, album: e.target.value})}
           />

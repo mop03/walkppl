@@ -154,10 +154,27 @@
       width: 900px; }
 
     .AddSong {
-      text-color: #ffffff;
+      color: #ffffff;
     }
 
     .AddSong1 {
       text-align: center;
       align-items: center;
+    }
+
+    .submit {
+      background: #07fcef;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 32px;
+      color: #fa10c7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form {
+      color: #ffffff;
     }
