@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+<<<<<<< HEAD
+# Walk People
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Introduction
+This app is homage to the days of the Walk-man, where people would have to play their own cassettes, instead of relying on the vast array of music 
+we can literally just choose from today. 
+Our project works similarly, where we allow the user to have a more unique and treasured experience with their music by allowing them to upload their 
+own mp3 files, organizing them into playlists, and searching for songs by title or author. 
+=======
+# walkppl
 
-## Available Scripts
+# Introduction
+Our project allows users to have a more unique and treasured experience with their music by allowing them to upload their own mp3 files, add songs into playlists, and search for songs by title or author
+>>>>>>> fc516d4f88bbcc6df99a9a61d2f6ab4849650d79
 
-In the project directory, you can run:
 
-### `npm start`
+# Main Features - List of playlists, including search bar and song bar in the main page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Feature 1: Ability to upload files to the main base with firebase as database
+you can add ANY songs to your playlist
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Feature 2: Searching for a song
+ Don't get lost and find your song 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Feature 3: Functional button such as: shuffle, skip, play and pasue
+ Go crazy with the control buttons!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Installation & Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Install
+1. To use the package, clone the repo and type in terminal
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+cd walkppl/walkppl
+yarn install -or- nmp install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Set up
 
-## Learn More
+```
+npm start 
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. To implement your own firebase start with Step 1 of [this doc](https://firebase.google.com/docs/web/setup)
+    and replace your app's Firebase project configuration code found in the project's setting in firebase console with the firbase.js file in the repo. 
+# Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* React
+* CSS
+* Firbase/Firestore
 
-### Code Splitting
+# Project Team Members 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Name / Role      | LinkedIn |
+| ----------- | ----------- |
+| Newsha Niazmandi  / SW Developer  |    [Newsha](https://www.linkedin.com/in/newsha-niazmandi/)   |
+| Maraim Masud / SW Developer   |     [Mariam](https://www.linkedin.com/in/mariam-masud-992461200)  |
+| Gautam Mahes / SW Developer   |   [Gautam](https://www.linkedin.com/in/gautam-mahes-4960471a8/)|
+| Sushrut Wate  / SW Developer   |      |
+| Ishani Sarkar / SW Developer   |    [Ishani](https://www.linkedin.com/in/ishani-sarkar-a711891b9/)   |
+<<<<<<< HEAD
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+>>>>>>> fc516d4f88bbcc6df99a9a61d2f6ab4849650d79
