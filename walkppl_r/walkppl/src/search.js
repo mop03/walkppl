@@ -11,10 +11,10 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
             id="header-search"
             placeholder="Search"
             name="s"
-            style={{ position: "absolute", left: 0, top: 0 }}
+            style={{ position: "relative", left: 300, top: 0 }}
             
         />
-        <button style={{ position: "absolute", left: 145, top: 0 }} type="submit">Search</button>
+        <button style={{ position: "relative", left: 300, top: 0 }} type="submit">Search</button>
     </form>
 );
 

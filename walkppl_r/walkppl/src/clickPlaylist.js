@@ -3,6 +3,7 @@ import {AiFillCloseCircle} from "react-icons/ai"
 import {MdAddCircle} from "react-icons/md"
 import react, {useState, useRef, useEffect} from "react";
 import React from "react";
+import AppSearch from './app_search'
 import Walkppl from './walkppl'
 import {FaCoffee} from "react-icons/fa"
 import soundfile from './audio_samples/Paradise_Coldplay.mp3'
@@ -34,6 +35,36 @@ const NewSong = (props) => {
 }
 
 const Clickplaylist = props => {
+
+  const [users, setUsers] = useState([]);
+    const [currentSongIndex, setCurrentSongIndex] = useState(0);
+    const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
+  useEffect(() => {
+
+    const fetchUsers = async () => {
+      const usersCollection = await db.collection("Music").get();
+      let original_songs = []
+      
+        usersCollection.docs.forEach((doc) => {
+          let song = { ...doc.data()}
+
+          original_songs.push(song)
+        })
+      setUsers(original_songs)
+    };
+    fetchUsers();
+  }, []);
+  
+    useEffect(() => {
+      setNextSongIndex(() => {
+        if (currentSongIndex + 1 > users.length - 1) {
+          return 0;
+        } else {
+          return currentSongIndex + 1;
+        }
+      });
+    }, [currentSongIndex]);
+
     function AddSong(props) {
   
         const[add,setAdd] = useState([]);
@@ -157,9 +188,15 @@ const Clickplaylist = props => {
                 <button className={styles.playPause} onClick={() => {setShowAddSong(true)}}>
                     <MdAddCircle />
                 </button> ) } 
-                <AiFillCloseCircle className={styles.closebutton} onClick={props.handleClose}/> 
-                        
+                <AiFillCloseCircle className={styles.closebutton} onClick={props.handleClose}/>     
                  </header>
+                 <AppSearch 
+                  currentSongIndex={currentSongIndex}
+                  setCurrentSongIndex={setCurrentSongIndex}
+                  nextSongIndex={nextSongIndex}
+                  songs={users}
+                  shuffle={setUsers}
+                />
                     <div className={styles.playlistheader}>
                         <p id='title'>Title</p>
                         <p id='artist'>Artist</p>
@@ -167,7 +204,7 @@ const Clickplaylist = props => {
                     </div>
                     <hr />
         <div className={styles.playlistsong} onClick={togglePlay} >
-            <p>88 Keys</p>
+            <p>{props.songData?.title}</p>
             <p>Oatmello</p>
             <p>Snapshots</p>
          {isOpen && start()} 

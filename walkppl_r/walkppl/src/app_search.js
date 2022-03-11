@@ -1,5 +1,6 @@
 import Search1 from './search'
 import React, { useState } from 'react';
+import styles from './search.module.css'
 
 function Search(props) {
     
@@ -28,14 +29,14 @@ function Search(props) {
 
     
     return (
-        <div>
+        <div className={styles.searchBar}>
             <Search1
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
             <div>
                 {filteredPosts.map((post) => (
-                    <button style={{ display: "block", marginLeft: 50 }} type={post.artist}>{post.title}</button>
+                    <button style={{ display: "block", marginTop:10, marginLeft: 50 }} type={post.artist}>{post.title}</button>
                     
                 ))}
                 

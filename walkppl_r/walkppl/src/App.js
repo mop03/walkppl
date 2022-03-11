@@ -12,7 +12,6 @@ import playlistimage2 from './album_covers/drowning.png'
 import playlistimage3 from './album_covers/sleepy_time.png'
 import playlistimage4 from './album_covers/road_trip.png'
 
-
 function App() {
     const [isOpen, setIsOpen] = useState(false);
     const [users, setUsers] = useState([]);
@@ -53,13 +52,6 @@ function App() {
 
       <header className={styles.header}>
         <Header />
-        <AppSearch 
-          currentSongIndex={currentSongIndex}
-          setCurrentSongIndex={setCurrentSongIndex}
-          nextSongIndex={nextSongIndex}
-          songs={users}
-          shuffle={setUsers}
-        />
       </header>
 
       <main className={styles.main}>
@@ -93,6 +85,11 @@ function App() {
           content={<>
           </>}
           WalkPeople1={WalkPeople1}
+          currentSongIndex={currentSongIndex}
+          setCurrentSongIndex={setCurrentSongIndex}
+          nextSongIndex={nextSongIndex}
+          songs={users}
+          shuffle={setUsers}
           handleClose={togglePlaylist}
         />}
       </main>

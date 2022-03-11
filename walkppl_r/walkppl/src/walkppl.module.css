@@ -250,3 +250,17 @@
 .notShuffle {
     color: var(--primary);
 }
+
+.nightFuel {
+    background: var(--primary);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}

@@ -181,18 +181,11 @@ const Walkppl = (props) => {
                     <div className={styles.duration}>{(duration && !isNaN(duration)) && calculateTime(duration)}</div>
                 </div>
                 <div>
-                {showAddSong? (
-                    <AddSong 
-                        onUpload={onUpload}
-                        songData={songData}
-                        setSongData={setSongData}
-                        mp3Data={mp3Data}
-                        setMp3Data={setMp3Data}
-                    />) : (
-                <button className={styles.playPause} onClick={() => setShowAddSong(true)}>
+
+                <a href="https://www.starbucks.com/" className={styles.nightFuel}>
                     <FaCoffee />
-                </button>
-            )}
+                </a>
+            
                 </div>
                 <button className={styles.stepBack} onClick={() => SkipSong(false)}>
                     <AiFillStepBackward />
