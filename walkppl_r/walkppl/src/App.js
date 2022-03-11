@@ -19,9 +19,12 @@ function App() {
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
     const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
     const WalkPeople1 = useRef()
+<<<<<<< Updated upstream
     
     // new
 
+=======
+>>>>>>> Stashed changes
     const [isPlaying1, setIsPlaying1] = useState(false);
     const [duration1, setDuration1] = useState(0);
     const [currentTime1, setCurrentTime1] = useState(0);
@@ -33,6 +36,7 @@ function App() {
     const AnimationRef1 = useRef();
 
     const setSong = (title) => {
+<<<<<<< Updated upstream
       let temp1 = users;
       let temp2 = currentSongIndex 
       console.log(users[users.length-1])
@@ -41,6 +45,16 @@ function App() {
 
           setCurrentSongIndex(() => {
             
+=======
+      console.log(';success')
+      let temp1 = users;
+      let temp2 = currentSongIndex 
+      for(var i =0; i <= users.length; i++){
+        if(users[i]?.title == title){
+          console.log('hi')
+          setCurrentSongIndex(() => {
+            console.log(i)
+>>>>>>> Stashed changes
             return i
           })
           break
@@ -158,7 +172,10 @@ function App() {
       }
 
     //new 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     const togglePlaylist = () => {
         setIsOpen(!isOpen);
     }
@@ -244,6 +261,8 @@ function App() {
           ProgressBar1={ProgressBar1}
           AnimationRef1={AnimationRef1}
           currentSongIndex={currentSongIndex}
+          ProgressBar1={ProgressBar1}
+          AnimationRef1={AnimationRef1}
           setCurrentSongIndex={setCurrentSongIndex}
           nextSongIndex={nextSongIndex}
           songs={users}

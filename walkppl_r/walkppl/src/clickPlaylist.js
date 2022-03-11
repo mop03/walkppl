@@ -20,8 +20,12 @@ const NewSong = (props) => {
             setIsOpen(!isOpen);
         } 
     const start = () => {
+<<<<<<< Updated upstream
             
             props.setSong(title)
+=======
+      props.setSong(title)
+>>>>>>> Stashed changes
           }
     return (<><div className={styles.playlistsong} onClick={togglePlay} >
         <p id="titleid">{title}</p>
@@ -177,6 +181,7 @@ const Clickplaylist = props => {
                 <AiFillCloseCircle className={styles.closebutton} onClick={props.handleClose}/> 
                         
                  </header>
+<<<<<<< Updated upstream
                     <div className={styles.playlistheader}>
                         <p id='title'>Title</p>
                         <p id='artist'>Artist</p>
@@ -205,6 +210,17 @@ const Clickplaylist = props => {
          {isOpen && start()} 
       </div>
       <hr className={styles.line}/>
+=======
+                    <AppSearch 
+                  currentSongIndex={currentSongIndex}
+                  setCurrentSongIndex={setCurrentSongIndex}
+                  nextSongIndex={nextSongIndex}
+                  songs={users}
+                  shuffle={setUsers}
+                  setSong={props.setSong}
+                />
+        
+>>>>>>> Stashed changes
             {add}
             </div>
              </div>   

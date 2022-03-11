@@ -2,7 +2,37 @@ import Search1 from './search'
 import React, { useState } from 'react';
 
 function Search(props) {
+<<<<<<< Updated upstream
     
+=======
+    const title = props.title
+        const artist = props.artist_name
+        const album = props.album_name
+    const [isOpen, setIsOpen] = useState(false);
+    const togglePlay = () => {
+        setIsOpen(!isOpen);
+    } 
+    const start = () => {
+        props.setSong(props.title)
+      }
+
+    const NewSong = (props) => { 
+        const title = props.title
+        const artist = props.artist_name
+        const album = props.album_name
+        const start = () => {
+                props.setSong(title)
+              }
+        return (<><div className={styles.playlistsong} onClick={togglePlay} >
+            <p id="titleid">{title}</p>
+            <p id="artistid">{artist}</p>
+            <p id="albumid">{album}</p>
+            {isOpen && start()} 
+          </div>
+          <hr className={styles.line}/></>)
+    }
+
+>>>>>>> Stashed changes
     const filterPosts = (posts, query) => { 
         console.log({query:query});
     if (!query) {
@@ -33,6 +63,16 @@ function Search(props) {
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
+<<<<<<< Updated upstream
+=======
+            <div className={styles.playlistheader}>
+                        <p id='title'>Title</p>
+                        <p id='artist'>Artist</p>
+                        <p id='album'>Album</p>
+                        {isOpen && start()} 
+                    </div>
+                    <hr />
+>>>>>>> Stashed changes
             <div>
                 {filteredPosts.map((post) => (
                     <button style={{ display: "block", marginLeft: 50 }} type={post.artist}>{post.title}</button>

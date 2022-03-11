@@ -34,7 +34,11 @@ const Walkppl = (props) => {
 
     //references
     const WalkPeople = props.WalkPeople1;
+<<<<<<< Updated upstream
     const ProgressBar = props.ProgressBar1;
+=======
+    const ProgressBar = props.ProgressBar1
+>>>>>>> Stashed changes
     const AnimationRef = props.AnimationRef1;
     
 
