@@ -33,7 +33,7 @@ function AddSong(props) {
   React.useEffect(() => {
     if (musicUrl !== null) {
       setDisable(false);
-      alert("click on submit")
+      alert("Upload Successful! Press Submit to add to Playlist!")
       console.log(disable)
     }
   },[musicUrl])
@@ -46,6 +46,7 @@ function AddSong(props) {
     const musicname =props.songData.title;
     console.log(musicname)
      if (!musicname) {
+       alert("Please input title.")
        return;
      }
      db.collection("Music").doc(musicname).set({

@@ -33,6 +33,21 @@ function App() {
     const AnimationRef1 = useRef();
 
     const setSong = (title) => {
+      console.log(';success')
+      let temp1 = users;
+      let temp2 = currentSongIndex 
+      for(var i =0; i <= users.length; i++){
+        if(users[i]?.title == title){
+          
+          setCurrentSongIndex(() => {
+            console.log(i)
+            return i
+          })
+          break
+        }
+      }
+      ProgressBar1.current.value = 0;
+      changeRange();
       
     }
 
@@ -219,6 +234,7 @@ function App() {
           </>}
           WalkPeople1={WalkPeople1}
           handleClose={togglePlaylist}
+          setSong={setSong}
         />}
       </main>
 
