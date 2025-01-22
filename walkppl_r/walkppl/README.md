@@ -62,7 +62,7 @@ npm start
 | Newsha Niazmandi  / SW Developer  |    [Newsha](https://www.linkedin.com/in/newsha-niazmandi/)   |
 | Maraim Masud / SW Developer   |     [Mariam](https://www.linkedin.com/in/mariam-masud-992461200)  |
 | Gautam Mahes / SW Developer   |   [Gautam](https://www.linkedin.com/in/gautam-mahes-4960471a8/)|
-| Sushrut Wate  / SW Developer   |      |
+| Sushrut Wate  / SW Developer   |      [Sushrut](https://www.linkedin.com/in/sushrut-wate/)|
 | Ishani Sarkar / SW Developer   |    [Ishani](https://www.linkedin.com/in/ishani-sarkar-a711891b9/)   |
 
 
